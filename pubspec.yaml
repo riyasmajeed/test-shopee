@@ -39,6 +39,7 @@ dependencies:
   provider: ^6.1.2
   iconsax: ^0.0.8
   ionicons: ^0.2.2
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:

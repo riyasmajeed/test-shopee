@@ -102,10 +102,11 @@ class _ProductScreenState extends State<ProductScreen> {
                     ProductInfo(product: widget.product),
                     const SizedBox(height: 20),
                    
-                    const SizedBox(height: 10),
+                    // const SizedBox(height: 10),
                     
                     const SizedBox(height: 20),
                     ProductDescription(text: widget.product.description),
+                    
                   ],
                 ),
               ),

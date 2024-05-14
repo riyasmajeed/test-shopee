@@ -1,25 +1,39 @@
-
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:shoppee_app/model/apimodel.dart';
 
-import 'package:shoppee_app/model/product.dart';
+class ProductProvider with ChangeNotifier {
+  List<Shoee> _shoeeList = [];
+  bool _isLoading = false;
 
-class ProductProvider extends ChangeNotifier {
-  late List<Product> _products;
+  List<Shoee> get shoeeList => _shoeeList;
+  bool get isLoading => _isLoading;
 
-  List<Product> get products => _products;
+  get length => null;
 
-  // Future<void> fetchProducts() async {
-  //   final response = await http.get(Uri.parse('https://fakestoreapi.com/products'));
+  get productList => null;
 
-  //   if (response.statusCode == 200) {
-  //     List jsonResponse = json.decode(response.body);
-  //     _products = jsonResponse.map((data) => Product.fromJson(data)).toList();
-  //     notifyListeners();
-  //   } else {
-  //     throw Exception('Failed to load products');
-  //   }
-  // }
+  Future<void> fetchShoeeList() async {
+    _isLoading = true;
+    notifyListeners();
+    const apiUrl = 'https://fakestoreapi.com/products';
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+      if (response.statusCode == 200) {
+        print(response.statusCode);
+        final List<dynamic> data = jsonDecode(response.body);
+        _shoeeList = data.map((json) => Shoee.fromJson(json)).toList();
+
+      } else {
+        throw Exception('Failed to load shoee list');
+      }
+    } catch (e) {
+      throw Exception('Error fetching shoee list: $e');
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
 }

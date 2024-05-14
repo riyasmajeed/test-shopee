@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ionicons/ionicons.dart';
+
 import 'package:shoppee_app/costants.dart';
+import 'package:shoppee_app/model/category.dart';
 import 'package:shoppee_app/model/product.dart';
 import 'package:shoppee_app/view/widgets/product_widgets/cartegories.dart';
 import 'package:shoppee_app/view/widgets/product_widgets/home_appbar.dart';
@@ -59,7 +61,8 @@ fontSize: 15,fontWeight: FontWeight.bold ,color: const Color.fromARGB(255, 125, 
                       currentSlide = value;
                     });
                   },
-                  currentSlide: currentSlide,
+                currentSlide: 0,
+  images: categoryImages,
                 ),
                 const SizedBox(height: 20),
                  Categories(),
@@ -72,11 +75,20 @@ fontSize: 15,fontWeight: FontWeight.bold ,color: const Color.fromARGB(255, 125, 
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
+                    mainAxisSpacing: 25,
+                    childAspectRatio: 250,
+                    mainAxisExtent: 250
+                   
+                  
+
                   ),
                   itemCount: products.length,
                   itemBuilder: (context, index) {
-                    return ProductCard(product: products[index]);
+                    // return ProductCard(product: products[index]);
+                    return SizedBox(
+      height: 400, // Adjust the height as per your requirement
+      child: ProductCard(product: products[index]),
+    );
                   },
                 ),
               ],

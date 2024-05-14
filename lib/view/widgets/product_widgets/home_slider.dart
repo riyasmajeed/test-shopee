@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 class HomeSlider extends StatelessWidget {
   final Function(int) onChange;
   final int currentSlide;
+  final List<String> images;
+
   const HomeSlider({
-    super.key,
+    Key? key,
     required this.onChange,
     required this.currentSlide,
-  });
+    required this.images,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +21,16 @@ class HomeSlider extends StatelessWidget {
           width: double.infinity,
           child: PageView.builder(
             onPageChanged: onChange,
-            itemCount: 4,
+            itemCount: images.length,
             itemBuilder: (context, index) {
               return Container(
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage("assets/slider.jpg"),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(images[index]),
                   ),
                 ),
               );
@@ -41,7 +44,7 @@ class HomeSlider extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
-                4,
+                images.length,
                 (index) => AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   width: currentSlide == index ? 15 : 8,

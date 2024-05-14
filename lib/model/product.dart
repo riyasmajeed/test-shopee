@@ -27,7 +27,7 @@ final List<Product> products = [
     title: "Wireless Headphones",
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec massa sapien faucibus et molestie ac feugiat. In massa tempor nec feugiat nisl. Libero id faucibus nisl tincidunt.",
-    image: "assets/wireless.png",
+    image:  "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
     price: 120,
     colors: [
       Colors.black,
@@ -41,7 +41,7 @@ final List<Product> products = [
     title: "Woman Sweter",
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec massa sapien faucibus et molestie ac feugiat. In massa tempor nec feugiat nisl. Libero id faucibus nisl tincidunt.",
-    image: "assets/sweet.png",
+    image:  "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
     price: 120,
     colors: [
       Colors.brown,
@@ -55,7 +55,7 @@ final List<Product> products = [
     title: "Smart Watch",
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec massa sapien faucibus et molestie ac feugiat. In massa tempor nec feugiat nisl. Libero id faucibus nisl tincidunt.",
-    image: "assets/miband.jpg",
+     image:  "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
     price: 55,
     colors: [
       Colors.black,

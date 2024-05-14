@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ImageSlider extends StatelessWidget {
   final Function(int) onChange;
@@ -20,7 +21,14 @@ class ImageSlider extends StatelessWidget {
         onPageChanged: onChange,
         itemBuilder: (context, index) {
             return
-             Image.asset(image);
+           Container(
+           height: 100,
+           width: 100,
+           decoration: BoxDecoration(
+
+            color: Colors.black12
+           ),
+           );
         },
       ),
     );

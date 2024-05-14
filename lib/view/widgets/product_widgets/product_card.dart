@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-
 import 'package:shoppee_app/costants.dart';
 import 'package:shoppee_app/model/product.dart';
 import 'package:shoppee_app/screens/product_screen.dart';
+import 'package:shoppee_app/view/widgets/product_widgets/product/product_desc.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
-  const ProductCard({super.key, required this.product});
+  const ProductCard({Key? key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -22,58 +22,65 @@ class ProductCard extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: 250,
+            height: 280,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: kcontentColor,
+               color: kcontentColor,
+             
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(
-                  product.image,
-                  width: 120,
-                  height: 120,
-                ),
-                Text(
-                  product.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                Container(
+                  height: 140,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                        image: NetworkImage(product.image),
+                      fit: BoxFit.cover,
+                    ),
+
+                    //  color: Colors.black
                   ),
                 ),
-                // Row(
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: Text(
+                //     product.title,
+                //     style: const TextStyle(
+                //       fontWeight: FontWeight.bold,
+                //       fontSize: 16,
+                //     ),
+
+                //   ),
 
                   
-                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //   children: [
-                //     Container(
-                   
-                //       child: Text(
-                //         "\$${product.price}",
-                //         style: const TextStyle(
-                //           fontWeight: FontWeight.bold,
-                //           fontSize: 16,
-                //         ),
-                //       ),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: Text(
+                //     "\$${product.price}",
+                //     style: const TextStyle(
+                //       fontWeight: FontWeight.bold,
+                //       fontSize: 16,
                 //     ),
-                   
-                //   ],
-                // )
+                //   ),
+                // ),
+
+               
               ],
             ),
           ),
           Positioned(
-right: 10,
-top: 10,
+            right: 10,
+            top: 10,
             child: Container(
               width: 30,
               height: 30,
-              decoration:  BoxDecoration(
-            
-              
-              ),
-              child:  Icon(
+              decoration: BoxDecoration(),
+              child: Icon(
                 Ionicons.heart,
                 color: Color.fromARGB(255, 112, 107, 107),
                 size: 18,
@@ -81,14 +88,30 @@ top: 10,
             ),
           ),
 
-
           Positioned(
+            bottom: 10,
+            left: 15,
+            child:Container(
+           
+              
+child: Column(
+  mainAxisAlignment: MainAxisAlignment.start,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+ Text('Apple Watch  -M2',style: TextStyle(fontSize: 15,color: const Color.fromARGB(255, 130, 118, 118)),),
+    Row(
+      children: [
+ Text('\$140',style: TextStyle(fontSize: 20,color: Colors.black),),
+ Text('\$200',style: TextStyle(fontSize: 15,color: const Color.fromARGB(255, 130, 118, 118)),),
 
-            
-            child: Container())
+       
+      ],
+    )
+  ],
+),
+
+          ))
         ],
-
-        
       ),
     );
   }
